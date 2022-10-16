@@ -1,0 +1,34 @@
+class Student {
+  String _name;
+  String _id;
+  String _g;
+  
+
+  Student(this._name, this._id, this._g);
+
+  String get id => _id;
+
+  set id(String value) {
+    _id = value;
+  }
+
+  String get name => _name;
+
+  set name(String value) {
+    _name = value;
+  }
+
+  String get g => _g;
+
+  set g(String value) {
+    _g= value;
+  }
+
+  @override
+  String toString() {
+    return '_name: $_name\n_id: $_id\n_g: $_g\n_g: ';
+  }
+
+  
+  }
+}

@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+import 'package:untitled4/person.dart';
+class StudentCard extends StatelessWidget {
+  final Student student;
+  const StudentCard(this.student, {Key? key}) : super(key: key);
+ _showDailog(BuildContext context){
+   showDialog(
+
+     context: context,
+     builder: (context) => AlertDialog(
+       title: Text('${student.name} details', style: TextStyle(color: Colors.red , backgroundColor: Colors.black),),
+       content: Text(student.toString()),
+       actions: [
+         TextButton.icon(
+             onPressed:(){
+
+             },
+             icon: Icon(Icons.thumb_up),
+             label: Text('OK'))
+
+       ],
+     )
+
+   );
+
+ }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        _showDailog(context);
+      },
+      child: Container(
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
+        color: Colors.black12,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: [
+                Row(
+                  children:  [
+                     const Text('Name: ',style: TextStyle(fontSize: 25,color: Colors.blue),),
+                     Text(student.name,style: const TextStyle(fontSize: 25,color: Colors.black),)
+                  ],
+                ),
+                const SizedBox(height: 10,),
+                Row(
+                  children: [
+                    const Text('Id: ',style: TextStyle(fontSize: 25,color: Colors.blue),),
+                    Text(student.id,style: const TextStyle(fontSize: 25,color: Colors.black),)
+                  ],
+                ),
+              ],
+            ),
+            Image.asset('assets/images/person.png',width: 80,height: 80,),
+          ],
+        ),
+      ),
+    );
+  }
+}
